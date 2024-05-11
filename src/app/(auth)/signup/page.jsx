@@ -23,7 +23,7 @@ const page = () => {
   return (
     <>
       {/* TODO: validation */}
-      <form onSubmit={handleSubmit(onRegister)}>
+      <form onSubmit={handleSubmit(doRegister)}>
         <label htmlFor="email">メールアドレス</label>
         <input type="email" id="email" {...register("email", { required: true })} />
 

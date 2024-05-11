@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabase";
 import axios from "axios";
 

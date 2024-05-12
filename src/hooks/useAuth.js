@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "../utils/supabase/client";
+import { createClient } from "../utils/supabase/client";
 import axios from "axios";
 
 export default function useAuth() {
@@ -37,12 +37,19 @@ export default function useAuth() {
   }, [session])
 
   function signUp({ email, password }) {
-    const res = supabase.auth.signUp({ email, password });
-    console.log(res);
+    const supabase = createClient();
+    const { error } = supabase.auth.signUp({ email, password });
+    if (error) {
+      console.error("Failed to sign up:", error.message);
+    }
   }
 
   function signIn({ email, password }) {
-    supabase.auth.signInWithPassword({ email, password });
+    const supabase = createClient();
+    const { error } = supabase.auth.signInWithPassword({ email, password });
+    if (error) {
+      console.error("Failed to sign in:", error.message);
+    }
   }
 
   function signOut() {

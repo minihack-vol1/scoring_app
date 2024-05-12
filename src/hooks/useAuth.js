@@ -5,6 +5,7 @@ import { createClient } from "../utils/supabase/client";
 import axios from "axios";
 
 export default function useAuth() {
+  const supabase = createClient();
   const [session, setSession] = useState(null);
   const [user, setUser] = useState(null);
 
@@ -37,7 +38,6 @@ export default function useAuth() {
   }, [session])
 
   function signUp({ email, password }) {
-    const supabase = createClient();
     const { error } = supabase.auth.signUp({ email, password });
     if (error) {
       console.error("Failed to sign up:", error.message);
@@ -45,7 +45,6 @@ export default function useAuth() {
   }
 
   function signIn({ email, password }) {
-    const supabase = createClient();
     const { error } = supabase.auth.signInWithPassword({ email, password });
     if (error) {
       console.error("Failed to sign in:", error.message);

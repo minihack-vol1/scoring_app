@@ -37,7 +37,8 @@ export default function useAuth() {
   }, [session])
 
   function signUp({ email, password }) {
-    supabase.auth.signUp({ email, password });
+    const res = supabase.auth.signUp({ email, password });
+    console.log(res);
   }
 
   function signIn({ email, password }) {

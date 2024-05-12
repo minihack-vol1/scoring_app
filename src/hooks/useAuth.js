@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "../utils/supabase";
+import { supabase } from "../utils/client";
 import axios from "axios";
 
 export default function useAuth() {

@@ -4,7 +4,7 @@
 
   border: 1px solid #ccc;
   border-radius: 10px;
-  background-color: #eee;
+  background-color: #ddd;
   width: max-content;
   overflow-x: auto;
 
@@ -15,6 +15,7 @@
   text-align: center;
   width: 250px;
   border: 1px solid #ccc;
+  background-color: #eee;
   border-radius: 10px;
 
   padding: 2rem;

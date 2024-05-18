@@ -18,8 +18,8 @@ import {
 
 import { SortableItem } from "./SortableItem";
 
-const Board = ({ name }) => {
-  const [items, setItems] = useState([1, 2, 3]);
+const Board = ({ name, ...props }) => {
+  const [items, setItems] = useState(props.items);
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {

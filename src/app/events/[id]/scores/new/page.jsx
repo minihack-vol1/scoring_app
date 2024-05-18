@@ -10,11 +10,11 @@ const page = () => {
     <>
       <h1>採点する</h1>
       <div className="boards">
-        <Board />
-        <Board />
-        <Board />
-        <Board />
-        <Board />
+        <Board name="つよさ" />
+        <Board name="かっこよさ" />
+        <Board name="かわいさ" />
+        <Board name="ヤバさ" />
+        <Board name="おもしろさ" />
       </div>
     </>
   );

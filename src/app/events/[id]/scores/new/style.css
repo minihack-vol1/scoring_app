@@ -1,8 +1,32 @@
 .boards {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
+
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #eee;
+
+  padding: 1rem;
 }
 
 .board {
-  flex: 1;
+  text-align: center;
+  width: 250px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  padding: 2rem;
+}
+
+.board__card {
+  text-align: center;
+  user-select: none;
+  list-style-position: outside;
+
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  margin: 1rem 0;
+  padding: 1rem 0;
 }

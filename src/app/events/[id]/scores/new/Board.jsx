@@ -18,7 +18,7 @@ import {
 
 import { SortableItem } from "./SortableItem";
 
-const Board = () => {
+const Board = (props) => {
   const [items, setItems] = useState([1, 2, 3]);
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -49,9 +49,9 @@ const Board = () => {
       <ol className="board">
         <SortableContext items={items} strategy={verticalListSortingStrategy}>
           {items.map((id) => (
-            <li key={id} id={id}>
-              <SortableItem>{id}</SortableItem>
-            </li>
+            <SortableItem key={id} id={id}>
+              <li>{id}</li>
+            </SortableItem>
           ))}
         </SortableContext>
       </ol>

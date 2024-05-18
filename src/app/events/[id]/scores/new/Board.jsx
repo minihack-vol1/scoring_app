@@ -18,7 +18,7 @@ import {
 
 import { SortableItem } from "./SortableItem";
 
-const Board = () => {
+const Board = (props) => {
   const [items, setItems] = useState([1, 2, 3]);
   const sensors = useSensors(
     useSensor(PointerSensor),
@@ -46,13 +46,15 @@ const Board = () => {
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
     >
-      <SortableContext items={items} strategy={verticalListSortingStrategy}>
-        {items.map((id) => (
-          <SortableItem key={id} id={id}>
-            {id}
-          </SortableItem>
-        ))}
-      </SortableContext>
+      <ol className="board" key={props.id}>
+        <SortableContext items={items} strategy={verticalListSortingStrategy}>
+          {items.map((id) => (
+            <li key={id} id={id}>
+              <SortableItem>{id}</SortableItem>
+            </li>
+          ))}
+        </SortableContext>
+      </ol>
     </DndContext>
   );
 };

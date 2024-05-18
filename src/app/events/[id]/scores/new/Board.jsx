@@ -46,7 +46,7 @@ const Board = ({ name, ...props }) => {
       collisionDetection={closestCenter}
       onDragEnd={handleDragEnd}
     >
-      <ol className="board">
+      <ol id={props.id} className="board">
         <h3>{ name }</h3>
         <SortableContext items={items} strategy={verticalListSortingStrategy}>
           {items.map((id) => (

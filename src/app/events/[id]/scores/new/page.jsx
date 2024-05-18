@@ -31,14 +31,32 @@ const page = () => {
     { id: "funniness", name: "おもしろさ" },
   ]
 
+  const handleSubmit = () => {
+    // 各ボードの順位を取得
+    const rankings = criteria.map((criterion) => {
+      const board = document.getElementById(criterion.id)
+      const items = Array.from(board.children).map((item) => item.textContent)
+      return { criterion: criterion.id, ranking: items }
+    })
+
+    // TODO: ランキング情報を送信
+    console.log(rankings)
+  }
+
   return (
     <>
       <h1>採点する</h1>
       <div className="boards">
         {criteria.map((criterion) => (
-          <Board key={criterion.id} name={criterion.name} items={teams} />
+          <Board
+            id={criterion.id}
+            key={criterion.id}
+            name={criterion.name}
+            items={teams}
+          />
         ))}
       </div>
+      <button onClick={handleSubmit}>確定する！</button>
     </>
   );
 }

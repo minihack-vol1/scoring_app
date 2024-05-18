@@ -1,0 +1,8 @@
+.boards {
+    display: flex;
+    gap: 1rem;
+}
+
+.board {
+  flex: 1;
+}

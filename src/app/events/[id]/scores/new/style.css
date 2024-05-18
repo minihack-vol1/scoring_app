@@ -5,6 +5,8 @@
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #eee;
+  width: max-content;
+  overflow-x: auto;
 
   padding: 1rem;
 }

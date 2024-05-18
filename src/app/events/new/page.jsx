@@ -1,9 +1,19 @@
+"use client"
+
 import React from 'react'
 
 const page = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
-
+    fetch('/api/user')
+      .then(response => response.json())
+      .then(data => {
+        const { userId } = data;
+        
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   }
 
   return (

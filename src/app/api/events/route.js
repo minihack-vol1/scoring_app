@@ -2,7 +2,7 @@ import prisma from "@/src/utils/prisma";
 import { NextResponse } from "next/server";
 
 export const POST = async (req, res) => {
-  const { name, userId: createdBy } = req.json();
+  const { name, userId: createdBy } = await req.json();
   console.log(name, createdBy);
 
   try {

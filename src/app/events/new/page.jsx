@@ -1,19 +1,29 @@
 "use client"
 
 import React from 'react'
+import axios from 'axios'
 
 const page = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
-    fetch('/api/user')
-      .then(response => response.json())
-      .then(data => {
-        const { userId } = data;
-        
+
+    axios.get("/api/user")
+      .then((response) => {
+        console.log(response)
+        const { userId } = response.data
+        const name = e.target.name.value
+
+        axios.post("/api/events", { name, userId })
+          .then(() => {
+            alert("イベントを作成しました")
+          })
+          .catch(() => {
+            alert("エラーが発生しました")
+          })
       })
-      .catch(error => {
-        console.error('Error:', error);
-      });
+      .catch(() => {
+        alert("エラーが発生しました")
+      })
   }
 
   return (

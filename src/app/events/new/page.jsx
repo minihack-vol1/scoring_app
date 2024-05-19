@@ -2,27 +2,34 @@
 
 import React from 'react'
 import axios from 'axios'
+import { useRouter } from 'next/navigation'
 
-const page = () => {
+const Page = () => {
+  const router = useRouter();
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
     axios.get("/api/user")
-      .then((response) => {
-        console.log(response)
-        const { userId } = response.data
+      .then((res) => {
+        const { userId } = res.data
         const name = e.target.name.value
 
         axios.post("/api/events", { name, userId })
-          .then(() => {
+          .then((res2) => {
             alert("イベントを作成しました")
+
+            const { lastInsertId } = res2.data
+            router.push(`/events/${lastInsertId}`)
           })
-          .catch(() => {
+          .catch((err) => {
             alert("エラーが発生しました")
+            console.error(err);
           })
       })
-      .catch(() => {
+      .catch((err) => {
         alert("エラーが発生しました")
+        console.error(err);
       })
   }
 
@@ -38,4 +45,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
